@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-title">{{ title }}</div>
+  <div class="card-body">
+    <div *ngIf="imageSrc" class="card-image">
+      <img [src]="imageSrc" alt="Imagen de la tarjeta">
+    </div>
+    <div class="card-content">
+      <ng-content></ng-content>
+      <div class="card-links" *ngIf="links">
+        <div *ngFor="let link of links" class="card-link-item">
+          <a [href]="link.url" target="_blank">
+            <img [src]="link.logo" alt="Logo" class="link-logo">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+/* panel.component.scss */
+.panel {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Asegura que los elementos hijos posicionados sean relativos a este contenedor */
+
+  .toggle-button {
+    align-self: flex-start; /* Coloca el botón en la parte superior izquierda */
+    margin-bottom: 10px; /* Ajusta el margen según sea necesario */
+  }
+
+  .content {
+    /* Estilos para el contenido adicional */
+  }
+}

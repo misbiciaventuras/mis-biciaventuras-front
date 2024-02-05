@@ -1,0 +1,93 @@
+/* app.component.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+// #map {
+//   flex: 1;
+//   height: 50vh;
+//   overflow: hidden;
+// }
+
+#info-container {
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  margin-top: 10px;
+  height: 46vh;
+  overflow-y: auto;
+}
+
+#tablaRecorridos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tablaRecorridos th,
+#tablaRecorridos td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#tablaRecorridos th {
+  background-color: #f2f2f2;
+}
+
+#header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header-container h3 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.lista-titulo {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ver-todas-btn {
+  float: right;
+}
+
+/* app.component.scss */
+#map-container {
+  display: flex;
+  height: 50vh
+}
+
+#map {
+  flex: 1; /* El mapa ocupa todo el espacio disponible */
+  flex-direction: row;
+  transition: flex 0.5s ease; /* Agrega una transición suave para el efecto de expansión/contracción */
+}
+
+.panel-expanded #map {
+  flex: 0.8; /* El mapa ocupa el 80% del espacio disponible cuando el panel está expandido */
+}
+
+@media (max-width: 768px) {
+  #map-container {
+    flex-direction: column;
+  }
+
+  #map {
+    flex: none;
+    height: 50vh
+  }
+
+  #map-container app-panel {
+    display: block; /* Muestra siempre el panel en dispositivos móviles */
+  }
+}

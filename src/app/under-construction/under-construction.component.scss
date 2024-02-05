@@ -1,0 +1,20 @@
+/* banner.component.scss */
+.banner {
+  width: 100%;
+  height: 20vh; /* 20% de la altura de la pantalla */
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  background-color: rgb(251 187 97);
+}
+
+img {
+  width: auto;
+  height: 100%; /* Ajusta la altura de la imagen al 100% del banner */
+  max-width: 100%; /* Asegura que la imagen no exceda el ancho del banner */
+  object-fit: contain; /* Hace que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
+}

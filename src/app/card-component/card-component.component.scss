@@ -1,0 +1,48 @@
+.card {
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+
+.card-title {
+  background-color: #ccc;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.card-body {
+  display: flex;
+}
+
+.card-image {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total del div */
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-content {
+  flex: 3;
+  padding: 10px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total del div */
+}
+
+.card-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card-link-item {
+  margin-right: 10px;
+}
+
+.link-logo {
+  width: 50px; /* Establece un ancho fijo para los logos */
+  height: 50px; /* Establece un alto fijo para los logos */
+  object-fit: contain; /* Esto asegura que la imagen se escale proporcionalmente dentro de las dimensiones sin distorsionarse */
+}

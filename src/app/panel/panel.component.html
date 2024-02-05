@@ -1,0 +1,7 @@
+<!-- panel.component.html -->
+<div class="panel">
+  <button class="toggle-button" (click)="togglePanel()">Toggle Panel</button>
+  <div *ngIf="expanded" class="panel-content">
+    <ng-content></ng-content>
+  </div>
+</div>

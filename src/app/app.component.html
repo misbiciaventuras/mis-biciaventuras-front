@@ -1,0 +1,75 @@
+<!-- src/app/app.component.html -->
+<app-under-construction />
+<app-card-component title="Saludo" imageSrc="assets/images/IMG_20221013_163212.jpg" [links]="links">
+  <p>
+    Hola amigos/as, soy Carlos Armengol y estas son MisBiciaventuras!!! <br>Un
+    proyecto donde quiero compartir, a traves de esta web, de YouTube, Instagram
+    y demás redes sociales, los viajes en bicicleta que estoy haciendo, que he
+    hecho y que espero hacer en un futuro y compartirlos con vosotros. <br>Mi
+    intención es que esta página además de para proporcionar más información
+    sobre los distintos viajes que he realizado, para proporcionaros recursos y
+    compartir con vosotros todo lo que considere interesante, sirva de indice
+    para encontrar rapidamente el resto de mis redes y estar al día de todo mi
+    contenido.
+  </p>
+</app-card-component>
+<app-card-component [title]="'Mapas y recorridos'">
+
+  <div id="map-container">
+    <div id="map"></div>
+
+    <app-panel [expanded]="panelExpanded" (expandedChange)="handleChangeStatusPanel($event)">
+      <div id="info-container">
+        <div id="header-container">
+          <h3 class="lista-titulo">Lista de Recorridos</h3>
+          <div id="kmTotales">
+            Kilómetros Realizados: {{ distanciaRealizada.toFixed(2) }} km
+          </div>
+          <!-- <div id="kmTotales">Kilómetros Pendientes: {{ distanciaPendiente.toFixed(2) }} km</div>
+  <div id="kmTotales">Kilómetros Totales: {{ distanciaTotal.toFixed(2) }} km</div> -->
+          <button class="ver-todas-btn" (click)="zoomAll()">Centrar mapa</button>
+        </div>
+        <div *ngFor="let recorrido of recorridosJSON">
+          <h3 (mouseover)="resaltarRutaCompleta(recorrido.etapas, true)"
+            (mouseout)="resaltarRutaCompleta(recorrido.etapas, false)" (click)="zoomEnRecorrido(recorrido)">
+            {{ recorrido.name }}
+          </h3>
+          <table id="tablaRecorridos">
+            <thead>
+              <tr>
+                <th>
+                  Mostrar
+                  <input type="checkbox" [(ngModel)]="recorrido.mostrarAll"
+                    (change)="checkUncheckAllRoutes(recorrido.etapas, $event)" />
+                </th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Distancia (km)</th>
+                <!-- <th>Elevation gain</th>
+                <th>Elevation loss</th>
+                <th>Moving Time</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let etapa of recorrido.etapas" (mouseover)="resaltarEtapa(etapa.name, true)"
+                (mouseout)="resaltarEtapa(etapa.name, false)">
+                <td>
+                  <input type="checkbox" [(ngModel)]="etapa.show_on_map" (change)="
+                      cambiarVisibilidadRecorrido(etapa.name, $event, recorrido)
+                    " />
+                </td>
+                <td (click)="zoomEnEtapa(etapa.name)">
+                  {{ etapa.name }}
+                </td>
+                <td>{{ etapa.startTime | date : "dd/MM/yyyy" }}</td>
+                <td>{{ etapa.distance.toFixed(2) }} km</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </app-panel>
+  </div>
+</app-card-component>
+
+<router-outlet></router-outlet>
